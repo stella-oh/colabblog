@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>문제1. Norm | Herecomes,Data</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="문제1. Norm" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://stella-oh.github.io/colabblog/colabblog/2021/07/29/_07_30_%EC%98%A4%EC%9C%A4%EC%A0%95__5%EC%A3%BC%EC%B0%A8_%EA%B3%BC%EC%A0%9C_ipynb%EC%9D%98_%EC%82%AC%EB%B3%B8.html" />
+<meta property="og:url" content="https://stella-oh.github.io/colabblog/colabblog/2021/07/29/_07_30_%EC%98%A4%EC%9C%A4%EC%A0%95__5%EC%A3%BC%EC%B0%A8_%EA%B3%BC%EC%A0%9C_ipynb%EC%9D%98_%EC%82%AC%EB%B3%B8.html" />
+<meta property="og:site_name" content="Herecomes,Data" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-29T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2021-07-29T00:00:00-05:00","url":"https://stella-oh.github.io/colabblog/colabblog/2021/07/29/_07_30_%EC%98%A4%EC%9C%A4%EC%A0%95__5%EC%A3%BC%EC%B0%A8_%EA%B3%BC%EC%A0%9C_ipynb%EC%9D%98_%EC%82%AC%EB%B3%B8.html","@type":"BlogPosting","headline":"문제1. Norm","dateModified":"2021-07-29T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stella-oh.github.io/colabblog/colabblog/2021/07/29/_07_30_%EC%98%A4%EC%9C%A4%EC%A0%95__5%EC%A3%BC%EC%B0%A8_%EA%B3%BC%EC%A0%9C_ipynb%EC%9D%98_%EC%82%AC%EB%B3%B8.html"},"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/colabblog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://stella-oh.github.io/colabblog/colabblog/feed.xml" title="Herecomes,Data" /><link rel="shortcut icon" type="image/x-icon" href="/colabblog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/colabblog/">Herecomes,Data</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/colabblog/about/">About Me</a><a class="page-link" href="/colabblog/search/">Search</a><a class="page-link" href="/colabblog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">문제1. Norm</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-07-29T00:00:00-05:00" itemprop="datePublished">
+        Jul 29, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/stella-oh/colabblog/tree/master/_notebooks/2021_07_30_오윤정__5주차_과제_ipynb의_사본.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/colabblog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/stella-oh/colabblog/master?filepath=_notebooks%2F2021_07_30_%EC%98%A4%EC%9C%A4%EC%A0%95__5%EC%A3%BC%EC%B0%A8_%EA%B3%BC%EC%A0%9C_ipynb%EC%9D%98_%EC%82%AC%EB%B3%B8.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/colabblog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/stella-oh/colabblog/blob/master/_notebooks/2021_07_30_오윤정__5주차_과제_ipynb의_사본.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/colabblog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021_07_30_오윤정__5주차_과제_ipynb의_사본.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="5&#51452;&#52264;-&#44284;&#51228;-&#44277;&#51648;&#49324;&#54637;">5&#51452;&#52264; &#44284;&#51228; &#44277;&#51648;&#49324;&#54637;<a class="anchor-link" href="#5&#51452;&#52264;-&#44284;&#51228;-&#44277;&#51648;&#49324;&#54637;"> </a></h1><hr />
+<ol>
+<li>아래의 과제를 보고 답안을 작성하시면 됩니다.</li>
+<li>과제에 대한 점수는 100점 만점으로 진행이 됩니다. (한 문제당 20점)</li>
+<li>과제에 대한 평가는 모든 수강생들의 평가가 완료되면 확인할 수 있습니다. 참고부탁드립니다.</li>
+<li>과제기한은 일요일 저녁 10시 까지 입니다. 10시 이후에는 이 불가하오니 이 점 참고부탁드립니다.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&quot;&#51228;&#47785;!!&quot;">"&#51228;&#47785;!!"<a class="anchor-link" href="#&quot;&#51228;&#47785;!!&quot;"> </a></h1><blockquote><p>"요약!!"</p>
+</blockquote>
+<ul>
+<li>toc:true- branch: master- badges: true</li>
+<li>comments: true</li>
+<li>author: stella</li>
+<li>categories: [jupyter, deepbook]</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_diabetes</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">lasso</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;alpha=</span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">lasso</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;alpha=</span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">lasso</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;alpha=</span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>alpha=0.1 : [  -0.         -155.36288234  517.18201661  275.08235083  -52.54026923
+   -0.         -210.15975349    0.          483.91440913   33.67282148]
+
+alpha=1.0 : [  0.          -0.         367.70185207   6.30190419   0.
+   0.          -0.           0.         307.6057       0.        ]
+
+alpha=10.0 : [ 0.  0.  0.  0.  0.  0. -0.  0.  0.  0.]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#47928;&#51228;2.-Norm">&#47928;&#51228;2. Norm<a class="anchor-link" href="#&#47928;&#51228;2.-Norm"> </a></h1><ul>
+<li>난이도 : 중 </li>
+<li>관련 개념 : L2 norm을 이용하여 Regularization</li>
+<li>코드를 이용하여 구해주세요.</li>
+</ul>
+<p>Linear regression의 경우, 계수는 $(X^TX)^{-1}X^TY$이다. 여기에 L2 norm을 Regularization으로 사용하는 모델이 Ridge Regression이다. 아래의 코드를 참고하여  Ridge Regression의 계수를 구하라.</p>
+<ul>
+<li>책, 구글링을 하셔서 ridge regression 계수의 closed form으로 구하시면 됩니다.</li>
+<li>closed form에서 $\lambda$는 5로 해주시면 됩니다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_diabetes</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;X의 shape = </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">linear_reg_coef</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Linear Regression의 계수 = </span><span class="si">{</span><span class="n">linear_reg_coef</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="c1"># 여기에 작성하시면 됩니다.</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="c1">#lamda == alpha ==5</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ridge</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>X의 shape = (442, 10)
+Linear Regression의 계수 = [ -10.01219782 -239.81908937  519.83978679  324.39042769 -792.18416163
+  476.74583782  101.04457032  177.06417623  751.27932109   67.62538639]
+
+[  29.46574564  -83.15488546  306.35162706  201.62943384    5.90936896
+  -29.51592665 -152.04046539  117.31171538  262.94499533  111.878718  ]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#47928;&#51228;3.-&#51312;&#44592;&#51333;&#47308;">&#47928;&#51228;3. &#51312;&#44592;&#51333;&#47308;<a class="anchor-link" href="#&#47928;&#51228;3.-&#51312;&#44592;&#51333;&#47308;"> </a></h1><ul>
+<li>난이도 : 하</li>
+<li>관련 개념 : 조기종료 알고리즘을 만든다.</li>
+<li>코드를 통해 풀어주세요.</li>
+</ul>
+<p>아래 주석이 있는 부분에 조기종료(early stopping)을 실행하는 코드를 작성하시오.</p>
+<ul>
+<li>조기종료를 하는 방법은 다양합니다.</li>
+<li>이 문제에서는 <code>val_error</code>가  <code>2170000.0</code> 보다 작으면 조기종료가 되도록 코드를 작성해주세요.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_diabetes</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">train_x</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="mi">300</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">train_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="mi">300</span><span class="p">]</span>
+<span class="n">val_x</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">300</span><span class="p">:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">val_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">300</span><span class="p">:]</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">n_iter</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iter</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="o">-</span> <span class="n">train_x</span> <span class="o">*</span> <span class="p">(</span><span class="n">train_y</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">train_x</span><span class="p">))</span>
+    <span class="n">train_error</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">train_y</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">train_x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">val_error</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">val_y</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">val_x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># 여기에 early stopping 과정 작성</span>
+
+    <span class="k">if</span> <span class="n">val_error</span> <span class="o">&lt;</span> <span class="mf">2170000.0</span> <span class="p">:</span>
+      <span class="k">break</span>
+
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Iteration </span><span class="si">{</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;train error = </span><span class="si">{</span><span class="n">train_error</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;a = </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Iteration 10
+train error = 4231374.283
+a = 56.426
+
+Iteration 20
+train error = 4229299.489
+a = 88.751
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#47928;&#51228;4.-Noise">&#47928;&#51228;4. Noise<a class="anchor-link" href="#&#47928;&#51228;4.-Noise"> </a></h1><ul>
+<li>난이도 : 하 </li>
+<li>관련 개념 : nosie를 추가하여 모델링해보기</li>
+</ul>
+<p>아래의 Linear Regression 모델링 코드를 이용하여 input X에 noise를 추가하여 test dataset의 MSE를 구하여라.</p>
+<ul>
+<li>noise는 <code>np.random.normal</code>을 이용하여 <code>X_train.shape</code>만큼 만들어서 기존 <code>X</code>에 더한다. 이 때 <code>loc=0.0, scale=0.05</code>의 분포에서 noise를 만든다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_diabetes</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># noise를 추가하지 않고 모델링한 예시</span>
+<span class="n">model</span> <span class="o">=</span>  <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">test_mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="c1"># 여기에 코드 작성</span>
+<span class="n">model</span><span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">noise</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">test_mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">test_mse</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2743.8800467688447</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#47928;&#51228;5.-&#50521;&#49345;&#48660;-(Ensemble)">&#47928;&#51228;5. &#50521;&#49345;&#48660; (Ensemble)<a class="anchor-link" href="#&#47928;&#51228;5.-&#50521;&#49345;&#48660;-(Ensemble)"> </a></h1><ul>
+<li>난이도 : 하</li>
+<li>관련 개념 : Bagging의 개념이해</li>
+<li>코드를 통해 풀어주세요.</li>
+</ul>
+<p>심층이는 수업시간에 배운 앙상블기법들 중에 Bagging의 기법을 사용해보고자 한다. 회귀문제에서 다양한 모델을 만든 후에 예측값들을 평균내어서 최종결과가 더 좋아지는지 비교하려고 한다. 단일 모델과 앙상블한 모델의 test mse 를 구하고 비교하여라.</p>
+<ul>
+<li>단일 모델 : <code>Lasso</code></li>
+<li>앙상블 모델 : <code>LinearRegression + Ridge + Lasso</code></li>
+<li>모델링에서 모델들의 hypterparameter는 default값을 이용하시면 됩니다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">Ridge</span><span class="p">,</span> <span class="n">Lasso</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_diabetes</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">linear_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">ridge_model</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">()</span>
+<span class="n">lasso_model</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">()</span>
+
+<span class="c1"># 모델 fit</span>
+<span class="n">linear_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">linear_pred</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">ridge_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">ridge_pred</span> <span class="o">=</span> <span class="n">ridge_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">lasso_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">lasso_pred</span> <span class="o">=</span> <span class="n">lasso_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># 이후 과정을 코드로 작성하시면 됩니다</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><a class="u-url" href="/colabblog/2021/07/29/_07_30_%EC%98%A4%EC%9C%A4%EC%A0%95__5%EC%A3%BC%EC%B0%A8_%EA%B3%BC%EC%A0%9C_ipynb%EC%9D%98_%EC%82%AC%EB%B3%B8.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/colabblog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/colabblog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/colabblog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/https%3A%2F%2Fgithub.com%2Fstella-oh" title="https://github.com/stella-oh"><svg class="svg-icon grey"><use xlink:href="/colabblog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/https%3A%2F%2Fwww.linkedin.com%2Fin%2Fohyoonjung%2F" title="https://www.linkedin.com/in/ohyoonjung/"><svg class="svg-icon grey"><use xlink:href="/colabblog/assets/minima-social-icons.svg#linkedin"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
