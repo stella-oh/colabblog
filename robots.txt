@@ -1,1 +1,1 @@
-Sitemap: https://stella-oh.github.io/colabblog/sitemap.xml
+Sitemap: https://stella-oh.github.io/colabblog/colabblog/sitemap.xml
