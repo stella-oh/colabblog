@@ -53,6 +53,22 @@
   
 
   
+      ,"page3": {
+          "title": "sample",
+          "content": "#Herecomes,Data *new *approach .",
+          "url": "https://stella-oh.github.io/colabblog/colabblog/sample/",
+          "relUrl": "/sample/",
+          "date": ""
+      }
+      
+  
+
+  
+  
+
+  
+
+  
   
 
   
@@ -61,18 +77,13 @@
   
 
   
-
-  
   
 
   
   
 
   
-  
-
-  
-      ,"page10": {
+      ,"page11": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://stella-oh.github.io/colabblog/colabblog/robots.txt",
