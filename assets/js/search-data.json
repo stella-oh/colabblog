@@ -64,7 +64,9 @@
   
 
   
-      ,"page3": {
+
+  
+      ,"page4": {
           "title": "sample",
           "content": "#Herecomes,Data *new *approach .",
           "url": "https://stella-oh.github.io/colabblog/colabblog/sample/",
@@ -94,7 +96,7 @@
   
 
   
-      ,"page11": {
+      ,"page12": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://stella-oh.github.io/colabblog/colabblog/robots.txt",
