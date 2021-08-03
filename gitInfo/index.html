@@ -66,12 +66,48 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <img src="https://ghchart.rshah.org/paullabkorea" alt="" style="width: 660px; height: 100px;">
+        <img src="https://ghchart.rshah.org/stella-oh" alt="" style="width: 660px; height: 100px;">
 <div id="repos">
 <script>
-// 사용한 언어를 return해주는 함수
-const repoLanguage = async (repo) =>{
-    let response = await fetch(`https://api.github.com/repos/paullabkorea/${repo}/languages`,
+// 비동기 작업을 위해 async function 선언
+const initRepo = async () =>{
+        const _username = 'stella-oh'
+        
+        // 추가할 dom선택
+        const repoUl = document.getElementById("repos")
+
+        // headers 설명 : 깃허브에 요청할 형식 지정
+        let response = await fetch('https://api.github.com/users/stella-oh/repos',
+        {headers:{
+            'Accept' : 'application/vnd.github.v3+json'
+        }});
+        const repoJson = await response.json()
+        // repo받아온 내용 확인
+        // console.log(repoJson);
+
+        // json내용을 map을 이용해 각 dom을 만들고 추가
+        repoJson.map((repos)=>{
+            let h2Element = document.createElement("h2")
+            h2Element.textContent = repos.name
+
+            let pElementDesc = document.createElement("p")
+            pElementDesc.textContent = "레포설명 : " + repos.description
+
+            let aElementURL = document.createElement("a")
+            aElementURL.href = repos.svn_url
+            aElementURL.textContent = repos.svn_url
+
+            //각 요소를 <div id="repos">에 추가
+            repoUl.append(h2Element)
+            repoUl.append(pElementDesc)
+            repoUl.append(aElementURL)
+            repoUl.append(document.createElement("br"))
+        })
+    }
+    initRepo()
+    
+    const repoLanguage = async (repo) =>{
+    let response = await fetch(`https://api.github.com/repos/stella-oh/${repo}/languages`,
         {headers:{
             'Accept' : 'application/vnd.github.v3+json',
         }});
@@ -92,7 +128,7 @@ const initRepo = async () =>{
         //갯수설정
         const count = 5;
         // headers 설명 : 깃허브에 요청할 형식 지정
-        let response = await fetch('https://api.github.com/users/paullabkorea/repos?'+
+        let response = await fetch('https://api.github.com/users/stella-oh/repos?'+
                        'per_page='+count,
         {headers:{
             'Accept' : 'application/vnd.github.v3+json',
@@ -123,44 +159,6 @@ const initRepo = async () =>{
             repoUl.append(h2Element)
             //사용언어부분 추가
             repoUl.append(strongElementLang)
-            repoUl.append(pElementDesc)
-            repoUl.append(aElementURL)
-            repoUl.append(document.createElement("br"))
-        })
-    }
-  
- 
- 
-// 비동기 작업을 위해 async function 선언
-const initRepo = async () =>{
-        const _username = 'paullabkorea'
-        
-        // 추가할 dom선택
-        const repoUl = document.getElementById("repos")
-
-        // headers 설명 : 깃허브에 요청할 형식 지정
-        let response = await fetch('https://api.github.com/users/paullabkorea/repos',
-        {headers:{
-            'Accept' : 'application/vnd.github.v3+json'
-        }});
-        const repoJson = await response.json()
-        // repo받아온 내용 확인
-        // console.log(repoJson);
-
-        // json내용을 map을 이용해 각 dom을 만들고 추가
-        repoJson.map((repos)=>{
-            let h2Element = document.createElement("h2")
-            h2Element.textContent = repos.name
-
-            let pElementDesc = document.createElement("p")
-            pElementDesc.textContent = "레포설명 : " + repos.description
-
-            let aElementURL = document.createElement("a")
-            aElementURL.href = repos.svn_url
-            aElementURL.textContent = repos.svn_url
-
-            //각 요소를 <div id="repos">에 추가
-            repoUl.append(h2Element)
             repoUl.append(pElementDesc)
             repoUl.append(aElementURL)
             repoUl.append(document.createElement("br"))
