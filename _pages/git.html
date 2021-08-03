@@ -9,7 +9,7 @@ search_exclude: true
 <script>
 // 사용한 언어를 return해주는 함수
 const repoLanguage = async (repo) =>{
-    let response = await fetch(`https://api.github.com/repos/paullabkorea/${repo}/languages`,
+    let response = await fetch(`https://api.github.com/repos/stella-oh/${repo}/languages`,
         {headers:{
             'Accept' : 'application/vnd.github.v3+json',
         }});
@@ -30,7 +30,7 @@ const initRepo = async () =>{
         //갯수설정
         const count = 5;
         // headers 설명 : 깃허브에 요청할 형식 지정
-        let response = await fetch('https://api.github.com/users/paullabkorea/repos?'+
+        let response = await fetch('https://api.github.com/users/stella-oh/repos?'+
                        'per_page='+count,
         {headers:{
             'Accept' : 'application/vnd.github.v3+json',
